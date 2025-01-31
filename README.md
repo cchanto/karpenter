@@ -2,34 +2,7 @@ Karpenter EKS Deployment Project
 📌 Project Overview
 This project deploys an EKS Cluster with Karpenter for autoscaling nodes efficiently. The infrastructure is managed using Terraform.
 
-📁 Project Structure
-plaintext
-Copy
-Edit
-.
-├── eks/
-│   ├── aim.tf               # EKS IAM configurations
-│   ├── eks.tf               # EKS cluster configuration
-│   ├── karpenter/           # Karpenter-specific module
-│   │   ├── aim.tf           # Karpenter IAM roles
-│   │   ├── data.tf          # Data sources
-│   │   ├── karpenter-manifests/
-│   │   │   ├── amd64-provisioner.yaml   # AMD64 node template
-│   │   │   ├── arm64-provisioner.yaml   # ARM64 node template
-│   │   │   └── spot-deployment.yaml     # Spot instance deployment example
-│   │   ├── karpenter.tf     # Karpenter Helm installation
-│   │   ├── output.tf        # Terraform outputs
-│   │   ├── provider.tf      # Provider configurations
-│   │   └── variables.tf     # Input variables
-│   ├── main.tf              # Main EKS configurations
-│   ├── output.tf            # EKS module outputs
-│   ├── providers.tf         # Provider configurations
-│   └── variables.tf         # EKS module variables
-└── infra/
-    ├── infra.tf             # Infrastructure configurations
-    ├── sg.tf                # Security group configurations
-⚡ Prerequisites
-Ensure you have the following installed:
+
 
 AWS CLI
 Terraform (>= 1.0)
