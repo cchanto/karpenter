@@ -27,9 +27,13 @@ terraform apply -auto-approve
 -cd karpenter
 -terraform init
 -terraform apply -auto-approve
+
 -⚙️ Karpenter Configuration
+
 -🖥️ Node Templates
+
 -File	Description
+
 -amd64-provisioner.yaml	Configuration for x86 instances
 -arm64-provisioner.yaml	Configuration for ARM64 instances
 -spot-deployment.yaml	Example deployment using spot instances
@@ -56,21 +60,26 @@ Check Karpenter Pods
 -🔧 Customization
 -Modify variables in each module's variables.tf to:
 
-Change instance types
-Adjust scaling limits
-Configure node selection criteria
+-Change instance types
+-Adjust scaling limits
+-Configure node selection criteria
+
 -🐞 Troubleshooting
 Check IAM Roles & Permissions
 Ensure that Karpenter IAM Role has the required policies:
 
 
 -aws iam list-attached-role-policies --role-name karpenter-controller
+
 Check Network Connectivity
+
 Verify that EKS cluster endpoint is accessible:
 
 
 -kubectl cluster-info
+
 -🔥 Cleanup
+
 -To destroy the resources, run the commands in reverse order:
 
 
