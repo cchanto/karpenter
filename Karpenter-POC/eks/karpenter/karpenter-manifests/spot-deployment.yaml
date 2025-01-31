@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spot-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spot-nginx
+  template:
+    metadata:
+      labels:
+        app: spot-nginx
+    spec:
+      nodeSelector:
+        karpenter.sh/capacity-type: "spot"
+      containers:
+        - name: nginx
+          image: nginx
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"

@@ -1,0 +1,13 @@
+apiVersion: karpenter.k8s.aws/v1alpha1
+kind: AWSNodeTemplate
+metadata:
+  name: default
+  namespace: karpenter  # Added namespace
+spec:
+  subnetSelector:
+    karpenter.sh/discovery: eks-cluster
+  securityGroupSelector:
+    karpenter.sh/discovery: eks-cluster
+  instanceProfile: karpenter-node
+  tags:
+    karpenter.sh/discovery: eks-cluster
