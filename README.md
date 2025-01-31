@@ -10,32 +10,29 @@ kubectl
 Helm
 AWS account with required IAM permissions
 🚀 Deployment Workflow
-1️⃣ Deploy Infrastructure
-bash
-Copy
-Edit
+-1️⃣ Deploy Infrastructure
+
+
 cd infra
 terraform init
 terraform apply -auto-approve
-2️⃣ Deploy EKS Cluster
+-2️⃣ Deploy EKS Cluster
 bash
 Copy
 Edit
 cd ../eks
 terraform init
 terraform apply -auto-approve
-3️⃣ Deploy Karpenter
-
-
-cd karpenter
-terraform init
-terraform apply -auto-approve
-⚙️ Karpenter Configuration
-🖥️ Node Templates
-File	Description
-amd64-provisioner.yaml	Configuration for x86 instances
-arm64-provisioner.yaml	Configuration for ARM64 instances
-spot-deployment.yaml	Example deployment using spot instances
+-3️⃣ Deploy Karpenter
+-cd karpenter
+-terraform init
+-terraform apply -auto-approve
+-⚙️ Karpenter Configuration
+-🖥️ Node Templates
+-File	Description
+-amd64-provisioner.yaml	Configuration for x86 instances
+-arm64-provisioner.yaml	Configuration for ARM64 instances
+-spot-deployment.yaml	Example deployment using spot instances
 
 -🔑 Key Features
 -✔️ Support for x86 & ARM64 architectures
@@ -43,49 +40,40 @@ spot-deployment.yaml	Example deployment using spot instances
 -✔️ Dynamic node scaling
 -✔️ Flexible instance family selection
 
-🔍 Verification Commands
+-🔍 Verification Commands
 Check Karpenter Pods
-bash
-Copy
-Edit
-kubectl get pods -n karpenter
-Check Karpenter Logs
-bash
-Copy
-Edit
-kubectl logs -n karpenter -l app.kubernetes.io/name=karpenter
-Verify Helm Release
-bash
-Copy
-Edit
-helm list -n karpenter
-🔧 Customization
-Modify variables in each module's variables.tf to:
+
+
+-kubectl get pods -n karpenter
+-Check Karpenter Logs
+
+
+-kubectl logs -n karpenter -l app.kubernetes.io/name=karpenter
+-Verify Helm Release
+
+
+-helm list -n karpenter
+-🔧 Customization
+-Modify variables in each module's variables.tf to:
 
 Change instance types
 Adjust scaling limits
 Configure node selection criteria
-🐞 Troubleshooting
+-🐞 Troubleshooting
 Check IAM Roles & Permissions
 Ensure that Karpenter IAM Role has the required policies:
 
-bash
-Copy
-Edit
-aws iam list-attached-role-policies --role-name karpenter-controller
+
+-aws iam list-attached-role-policies --role-name karpenter-controller
 Check Network Connectivity
 Verify that EKS cluster endpoint is accessible:
 
-bash
-Copy
-Edit
-kubectl cluster-info
-🔥 Cleanup
-To destroy the resources, run the commands in reverse order:
 
-bash
-Copy
-Edit
+-kubectl cluster-info
+-🔥 Cleanup
+-To destroy the resources, run the commands in reverse order:
+
+
 # Destroy Karpenter
 cd karpenter
 terraform destroy -auto-approve
