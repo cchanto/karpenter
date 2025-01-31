@@ -16,13 +16,13 @@ AWS account with required IAM permissions
 cd infra
 terraform init
 terraform apply -auto-approve
+
 -2️⃣ Deploy EKS Cluster
-bash
-Copy
-Edit
+
 cd ../eks
 terraform init
 terraform apply -auto-approve
+
 -3️⃣ Deploy Karpenter
 -cd karpenter
 -terraform init
