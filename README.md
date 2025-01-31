@@ -1,5 +1,5 @@
-Karpenter EKS Deployment Project
-📌 Project Overview
+# Karpenter EKS Deployment Project
+# 📌 Project Overview
 This project deploys an EKS Cluster with Karpenter for autoscaling nodes efficiently. The infrastructure is managed using Terraform.
 
 
@@ -25,9 +25,8 @@ cd ../eks
 terraform init
 terraform apply -auto-approve
 3️⃣ Deploy Karpenter
-bash
-Copy
-Edit
+
+
 cd karpenter
 terraform init
 terraform apply -auto-approve
@@ -37,11 +36,12 @@ File	Description
 amd64-provisioner.yaml	Configuration for x86 instances
 arm64-provisioner.yaml	Configuration for ARM64 instances
 spot-deployment.yaml	Example deployment using spot instances
-🔑 Key Features
-✔️ Support for x86 & ARM64 architectures
-✔️ Spot and on-demand instance types
-✔️ Dynamic node scaling
-✔️ Flexible instance family selection
+
+-🔑 Key Features
+-✔️ Support for x86 & ARM64 architectures
+-✔️ Spot and on-demand instance types
+-✔️ Dynamic node scaling
+-✔️ Flexible instance family selection
 
 🔍 Verification Commands
 Check Karpenter Pods
